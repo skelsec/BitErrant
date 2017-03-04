@@ -1,3 +1,8 @@
+Prereq:
+1. visual studio
+2. python bencode
+3. python crypto
+4. the SHAtter pdf files (https://shattered.io/)
 
 STEPS:
 	1. put your shellcode in the "shellcode" variable in shellcode.py.
