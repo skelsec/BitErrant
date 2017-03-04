@@ -50,6 +50,11 @@ void good(void)
 int main()
 {
 	int keyPos = searchPattern(&collision_data[0], collSize);
+	if(keyPos == NULL)
+	{
+		printf("Key not found, exiting!");
+		return -1;
+	}
 	keyPos = keyPos - 16 + 0xC0;
 
 	shellcode = (char*)malloc(shellcodeSize);
@@ -61,9 +66,7 @@ int main()
 		oRijndael.DecryptBlock(shellcodeEnc +i, shellcode+i);
 	}
 	if (!memcmp(verifier, shellcode, strlen(verifier)))
-	{
 		evil();
-	}
 	else
 		good();
 
